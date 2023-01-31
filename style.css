@@ -1,0 +1,205 @@
+:root {
+  --color-primary: hsl(25, 97%, 53%);
+
+  --color-secondary-white: hsl(0, 0%, 100%);
+  --color-secondary-lgrey: hsl(217, 12%, 63%);
+  --color-secondary-mgrey: hsl(216, 12%, 54%);
+  --color-secondary-grey-transp: hsla(216, 12%, 54%, 0.11);
+  --color-secondary-dblue: hsl(213, 19%, 18%);
+  --color-secondary-ddblue: hsl(216, 12%, 8%);
+  --color-gradient: hsl(216, 12%, 12%);
+
+  --fs-regular: 0.9375rem;
+
+  --ff-regular: "Overpass", sans-serif;
+
+  --fw-regular: 400;
+  --fw-bold: 700;
+}
+
+/* CSS RESET */
+/*
+  1. Use a more-intuitive box-sizing model. 
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+    2. Remove default margin
+  */
+* {
+  margin: 0;
+}
+/*
+    3. Allow percentage-based heights in the application
+  */
+html,
+body {
+  height: 100%;
+}
+/*
+    Typographic tweaks!
+    4. Add accessible line-height
+    5. Improve text rendering
+  */
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  font-family: var(--ff-regular);
+  font-size: var(--fs-regular);
+  background-color: var(--color-secondary-ddblue);
+  color: var(--color-secondary-mgrey);
+
+  display: grid;
+  place-content: center;
+}
+/*
+    6. Improve media defaults
+  */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+    7. Remove built-in form typography styles
+  */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+    8. Avoid text overflows
+  */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* REVIEW ELEMENTS STYLING */
+
+.rating,
+.message {
+  background: linear-gradient(
+    180deg,
+    var(--color-secondary-dblue) 5%,
+    var(--color-gradient) 100%
+  );
+  /* background-color: var(--color-secondary-dblue); */
+  margin: 1.25rem;
+  border-radius: 1rem;
+  padding: 2rem 1.25em;
+
+  display: grid;
+  gap: 1rem;
+  max-width: 400px;
+}
+
+.message {
+  text-align: center;
+}
+
+/* Hide message element */
+.message {
+  display: none;
+}
+
+.rating__icon-container {
+  background-color: var(--color-secondary-grey-transp);
+  border-radius: 100rem;
+  padding: 1rem;
+  justify-self: start;
+}
+
+.rating__icon {
+  width: 17px;
+  height: 16px;
+}
+
+.rating__title,
+.message__title {
+  font-size: 1.75rem;
+  color: var(--color-secondary-white);
+  margin-top: 0.5em;
+}
+
+.rating__numbers {
+  display: flex;
+  justify-content: space-between;
+
+  list-style: none;
+  padding: 0;
+  margin-bottom: 0.5rem;
+}
+
+.rating__number {
+  background-color: var(--color-secondary-grey-transp);
+  /* padding: 0.5rem; */
+  border-radius: 100rem;
+  width: 40px;
+  height: 40px;
+
+  padding-top: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: 0.3s ease-in;
+}
+
+.selected {
+  background-color: var(--color-secondary-lgrey);
+  color: var(--color-secondary-white);
+}
+
+.rating__number:is(:hover, :focus) {
+  background-color: var(--color-primary);
+  color: var(--color-secondary-white);
+}
+
+.btn {
+  background-color: var(--color-primary);
+  color: var(--color-secondary-white);
+  border: none;
+  border-radius: 100rem;
+  padding: 1em 0.75em 0.75em;
+  font-weight: var(--fw-bold);
+
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: 0.3s ease-in;
+}
+
+.btn:is(:hover, :focus) {
+  background-color: var(--color-secondary-white);
+  color: var(--color-primary);
+}
+
+/* MESSAGE ELEMENT STYLING */
+
+.message__image-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.message__notice {
+  color: var(--color-primary);
+  background-color: var(--color-secondary-grey-transp);
+  display: inline-block;
+  justify-self: center;
+  padding: 0.25rem 1rem 0.125rem;
+  border-radius: 100rem;
+}
